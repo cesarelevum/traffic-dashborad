@@ -11,6 +11,7 @@
     .kpi{border:1px solid #e9ecef;border-radius:14px}
     .kpi .label{color:#6c757d;font-size:.85rem}
     .table td{vertical-align:middle}
+    .alert-badge{font-size:.85rem}
   </style>
 </head>
 <body>
@@ -41,6 +42,20 @@
     <div class="col-6 col-md-2"><div class="card kpi"><div class="card-body">
       <div class="label">Unid. activas</div><div id="kpiAct" class="fs-4 fw-bold">–</div>
     </div></div></div>
+  </div>
+
+  <!-- ALERTAS -->
+  <div class="card border-warning mb-4">
+    <div class="card-body">
+      <div class="d-flex align-items-center justify-content-between">
+        <h6 class="mb-0">
+          <span class="badge text-bg-warning alert-badge me-2">⚠️ Alertas</span>
+          Unidades con **Km < 3000** o **OTD < 80%**
+        </h6>
+        <span id="alertCount" class="badge text-bg-secondary">0</span>
+      </div>
+      <ul id="alertsList" class="mb-0 mt-2"></ul>
+    </div>
   </div>
 
   <!-- Charts -->
@@ -100,12 +115,26 @@ async function main(){
   document.getElementById('kpiUtil').textContent = util.toFixed(1)+'%';
   document.getElementById('kpiAct').textContent = unidAct;
 
-  // Tabla
+  // ===== ALERTAS =====
+  const alerts = [];
+  data.forEach(x=>{
+    const otd = (x.Entregas_a_tiempo/x.Entregas_totales)*100;
+    if (x.Km_recorridos < 3000) alerts.push(`⚠️ Cuidado: ${x.Unidad} con Km ${x.Km_recorridos} < 3000`);
+    if (otd < 80) alerts.push(`⚠️ Cuidado: ${x.Unidad} con OTD ${otd.toFixed(1)}% < 80%`);
+  });
+  document.getElementById('alertCount').textContent = alerts.length;
+  document.getElementById('alertsList').innerHTML = alerts.length
+    ? alerts.map(a=>`<li>${a}</li>`).join('')
+    : '<li>Sin alertas.</li>';
+
+  // Tabla (resalta filas con problemas)
   const tbody = document.getElementById('tbody');
   tbody.innerHTML = data.map(x=>{
     const kml = x.Km_recorridos / x.Combustible_L;
     const otd = (x.Entregas_a_tiempo/x.Entregas_totales)*100;
-    return `<tr>
+    const hasWarn = (x.Km_recorridos < 3000) || (otd < 80);
+    const trClass = hasWarn ? 'class="table-warning"' : '';
+    return `<tr ${trClass}>
       <td>${x.Unidad}</td><td>${x.Viajes}</td><td>${x.Km_recorridos.toLocaleString('es-MX')}</td>
       <td>${x.Combustible_L.toLocaleString('es-MX')}</td>
       <td>${kml.toFixed(2)}</td><td>${otd.toFixed(1)}</td>
