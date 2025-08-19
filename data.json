@@ -1,0 +1,13 @@
+[
+  {"Unidad":"T-101","Km_recorridos":4200,"Combustible_L":1460,"Viajes":32,"Entregas_a_tiempo":30,"Entregas_totales":32,"Tiempo_promedio_h":7.1,"Disponibilidad_pct":92,"Incidentes":0},
+  {"Unidad":"T-102","Km_recorridos":3980,"Combustible_L":1350,"Viajes":29,"Entregas_a_tiempo":27,"Entregas_totales":30,"Tiempo_promedio_h":7.8,"Disponibilidad_pct":90,"Incidentes":1},
+  {"Unidad":"T-103","Km_recorridos":3650,"Combustible_L":1300,"Viajes":27,"Entregas_a_tiempo":25,"Entregas_totales":27,"Tiempo_promedio_h":8.2,"Disponibilidad_pct":88,"Incidentes":0},
+  {"Unidad":"T-104","Km_recorridos":4400,"Combustible_L":1520,"Viajes":34,"Entregas_a_tiempo":33,"Entregas_totales":34,"Tiempo_promedio_h":6.9,"Disponibilidad_pct":95,"Incidentes":0},
+  {"Unidad":"T-105","Km_recorridos":3820,"Combustible_L":1340,"Viajes":28,"Entregas_a_tiempo":26,"Entregas_totales":28,"Tiempo_promedio_h":7.5,"Disponibilidad_pct":91,"Incidentes":1},
+  {"Unidad":"T-106","Km_recorridos":4100,"Combustible_L":1410,"Viajes":31,"Entregas_a_tiempo":29,"Entregas_totales":31,"Tiempo_promedio_h":7.3,"Disponibilidad_pct":93,"Incidentes":0},
+  {"Unidad":"T-107","Km_recorridos":3950,"Combustible_L":1370,"Viajes":30,"Entregas_a_tiempo":28,"Entregas_totales":30,"Tiempo_promedio_h":7.6,"Disponibilidad_pct":92,"Incidentes":0},
+  {"Unidad":"T-108","Km_recorridos":3720,"Combustible_L":1290,"Viajes":26,"Entregas_a_tiempo":24,"Entregas_totales":26,"Tiempo_promedio_h":8.0,"Disponibilidad_pct":89,"Incidentes":1},
+  {"Unidad":"T-109","Km_recorridos":4300,"Combustible_L":1480,"Viajes":33,"Entregas_a_tiempo":31,"Entregas_totales":33,"Tiempo_promedio_h":7.0,"Disponibilidad_pct":94,"Incidentes":0},
+  {"Unidad":"T-110","Km_recorridos":4050,"Combustible_L":1430,"Viajes":31,"Entregas_a_tiempo":29,"Entregas_totales":31,"Tiempo_promedio_h":7.4,"Disponibilidad_pct":92,"Incidentes":0}
+]
+
